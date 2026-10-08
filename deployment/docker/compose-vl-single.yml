@@ -42,8 +42,12 @@ services:
     ports:
       - "9428:9428"
       - "29514:29514"
+      - "10514:10514"
     command:
       - "--storageDataPath=/vlogs"
+      - "--syslog.listenAddr.tcp=:29514"
+      - "--syslog.listenAddr.udp=:29514"
+      - "--syslog.listenAddr.udp=:10514"
     volumes:
       - vldata:/vlogs
     restart: always
