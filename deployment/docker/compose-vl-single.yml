@@ -41,8 +41,9 @@ services:
     image: victoriametrics/victoria-logs:v1.53.0
     ports:
       - "9428:9428"
-      - "29514:29514"
-      - "10514:10514"
+      - "29514:29514/tcp"
+      - "29514:29514/udp"
+      - "10514:10514/udp"
     command:
       - "--storageDataPath=/vlogs"
       - "--syslog.listenAddr.tcp=:29514"
